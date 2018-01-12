@@ -233,10 +233,11 @@ open class AutoRotatingFileDestination: FileDestination {
         var archiveFolderURL: URL = (self.archiveFolderURL ?? type(of: self).defaultLogFolderURL)
         archiveFolderURL = archiveFolderURL.appendingPathComponent("\(baseFileName)\(archiveSuffixDateFormatter.string(from: Date()))")
         archiveFolderURL = archiveFolderURL.appendingPathExtension(fileExtension)
-        rotateFile(to: archiveFolderURL, closure: autoRotationCompletion)
-
-        currentLogStartTimeInterval = Date().timeIntervalSince1970
-        currentLogFileSize = 0
+        
+        if rotateFile(to: archiveFolderURL, closure: autoRotationCompletion) {
+            currentLogStartTimeInterval = Date().timeIntervalSince1970
+            currentLogFileSize = 0
+        }
 
         cleanUpLogFiles()
     }
