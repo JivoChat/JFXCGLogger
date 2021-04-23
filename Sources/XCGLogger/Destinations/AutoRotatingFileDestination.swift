@@ -204,11 +204,11 @@ open class AutoRotatingFileDestination: FileDestination {
         var archivedDetails: [(url: URL, timestamp: String)] = []
         for fileURL in fileURLs {
             guard let archivedLogIdentifierOptionalData = try? fileURL.extendedAttribute(forName: XCGLogger.Constants.extendedAttributeArchivedLogIdentifierKey) else { continue }
-            guard let archivedLogIdentifierData = archivedLogIdentifierOptionalData else { continue }
+            let archivedLogIdentifierData = archivedLogIdentifierOptionalData
             guard archivedLogIdentifierData == identifierData else { continue }
 
             guard let timestampOptionalData = try? fileURL.extendedAttribute(forName: XCGLogger.Constants.extendedAttributeArchivedLogTimestampKey) else { continue }
-            guard let timestampData = timestampOptionalData else { continue }
+            let timestampData = timestampOptionalData
             guard let timestamp = String(data: timestampData, encoding: .utf8) else { continue }
 
             archivedDetails.append((fileURL, timestamp))
