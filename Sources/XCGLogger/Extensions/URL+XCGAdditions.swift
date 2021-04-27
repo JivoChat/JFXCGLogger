@@ -20,14 +20,11 @@ extension URL {
             guard length >= 0 else { return nil }
 
             // Create buffer with required size
-            var data = Data(count: length)
-
-            // Retrieve attribute
-            let result = data.withUnsafeMutableBytes {
-                getxattr(fileSystemPath, name, $0, data.count, 0, 0)
-            }
+            let pointer = UnsafeMutableRawPointer.allocate(byteCount: length, alignment: 1)
+            let result = getxattr(fileSystemPath, name, pointer, length, 0, 0)
             guard result >= 0 else { throw URL.posixError(errno) }
-            return data
+            
+            return Data(bytes: pointer, count: length)
         }
 
         return data
@@ -58,19 +55,15 @@ extension URL {
             guard length >= 0 else { throw URL.posixError(errno) }
 
             // Create buffer with required size
-            var data = Data(count: length)
-
-            // Retrieve attribute list
-            let result = data.withUnsafeMutableBytes {
-                listxattr(fileSystemPath, $0, data.count, 0)
-            }
+            let pointer = UnsafeMutablePointer<Int8>.allocate(capacity: length)
+            let result = listxattr(fileSystemPath, pointer, length, 0)
             guard result >= 0 else { throw URL.posixError(errno) }
-
+            
             // Extract attribute names
-            let list = data.split(separator: 0).flatMap {
+            let localData = Data(bytes: pointer, count: length)
+            return localData.split(separator: 0).flatMap {
                 String(data: Data($0), encoding: .utf8)
             }
-            return list
         }
         return list
     }
