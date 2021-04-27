@@ -1,3 +1,10 @@
+--------------------------------
+
+This product is fork of https://github.com/DaveWoodCom/XCGLogger.git,
+which is released under MIT license: http://opensource.org/licenses/mit-license.html
+
+--------------------------------
+
 The MIT License (MIT)
 
 Copyright (c) 2014 Dave Wood, Cerebral Gardens http://www.cerebralgardens.com/
