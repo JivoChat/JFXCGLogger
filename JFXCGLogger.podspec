@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
 	spec.name = 'JFXCGLogger'
-	spec.version = '5.1.1'
+	spec.version = '5.1.2'
 	spec.summary = 'A debug log module for use in Swift projects.'
 
 	spec.description = <<-DESC
@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
 	spec.platforms = { :ios => '7.0', :watchos => '2.0', :tvos => '9.0' }
 	spec.requires_arc = true
 
-	spec.source = { :git => 'https://github.com/JivoChat/JFXCGLogger.git', :tag => '5.1.1' }
+	spec.source = { :git => 'https://github.com/JivoChat/JFXCGLogger.git', :tag => '5.1.2' }
         spec.swift_version = '5.0'
 
 	spec.ios.deployment_target = '8.0'
@@ -35,7 +35,7 @@ Pod::Spec.new do |spec|
 
 	# An experimental subspec to include helpers for using the UserInfo dictionary with log messages, tagging logs with tags and/or developers
 	spec.subspec 'UserInfoHelpers' do |userinfohelpers|
-		userinfohelpers.dependency 'XCGLogger/Core'
+		userinfohelpers.dependency 'JFXCGLogger/Core'
 		userinfohelpers.source_files = 'Sources/XCGLogger/Misc/Optional/UserInfoHelpers.swift'
 	end
 end
