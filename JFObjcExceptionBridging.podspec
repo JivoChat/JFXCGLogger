@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
 
-	spec.name = 'ObjcExceptionBridging'
+	spec.name = 'JFObjcExceptionBridging'
 	spec.version = '1.0.1'
 	spec.summary = 'A bridge to Objective-C exception handling, for use in Swift projects.'
 
@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
 	spec.platforms = { :ios => '7.0', :watchos => '2.0', :tvos => '9.0' }
 	spec.requires_arc = true
 
-	spec.source = { :git => 'https://github.com/JivoChat/JFXCGLogger.git', :tag => '5.1.0' }
+	spec.source = { :git => 'https://github.com/JivoChat/JFXCGLogger.git', :tag => '5.1.1' }
         spec.swift_version = '5.0'
 
 	spec.ios.deployment_target = '8.0'
@@ -24,10 +24,10 @@ Pod::Spec.new do |spec|
 	spec.watchos.deployment_target = '2.0'
 	spec.tvos.deployment_target = '9.0'
 	
-	spec.default_subspecs = 'ObjcExceptionBridging'
+	spec.default_subspecs = 'JFObjcExceptionBridging'
 
 	# ObjcExceptionBridging Framework
-	spec.subspec 'ObjcExceptionBridging' do |core|
+	spec.subspec 'JFObjcExceptionBridging' do |core|
 		core.source_files = 'Sources/ObjcExceptionBridging/**/*.{h,m}'
 	end
 end

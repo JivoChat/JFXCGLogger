@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
 	spec.name = 'JFXCGLogger'
-	spec.version = '5.1.0'
+	spec.version = '5.1.1'
 	spec.summary = 'A debug log module for use in Swift projects.'
 
 	spec.description = <<-DESC
@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
 	spec.platforms = { :ios => '7.0', :watchos => '2.0', :tvos => '9.0' }
 	spec.requires_arc = true
 
-	spec.source = { :git => 'https://github.com/JivoChat/JFXCGLogger.git', :tag => '5.1.0' }
+	spec.source = { :git => 'https://github.com/JivoChat/JFXCGLogger.git', :tag => '5.1.1' }
         spec.swift_version = '5.0'
 
 	spec.ios.deployment_target = '8.0'
@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
 
 	# Main XCGLogger Framework
 	spec.subspec 'Core' do |core|
-		core.dependency 'ObjcExceptionBridging'
+		core.dependency 'JFObjcExceptionBridging'
 		core.source_files = 'Sources/XCGLogger/**/*.{swift}'
 		core.exclude_files = 'Sources/XCGLogger/**/Optional/*.{swift}'
 	end
