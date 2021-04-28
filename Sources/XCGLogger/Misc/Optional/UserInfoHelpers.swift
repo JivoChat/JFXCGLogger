@@ -27,7 +27,7 @@ public struct Tag: UserInfoTaggingProtocol {
 
     /// Dictionary representation compatible with the userInfo paramater of log messages
     public var dictionary: [String: String] {
-        return [JFXCGLogger.Constants.userInfoKeyTags: name]
+        return [XCGLogger.Constants.userInfoKeyTags: name]
     }
 
     /// Initialize a Tag object with a name
@@ -48,7 +48,7 @@ public struct Tag: UserInfoTaggingProtocol {
             tags.append(name)
         }
 
-        return [JFXCGLogger.Constants.userInfoKeyTags: tags]
+        return [XCGLogger.Constants.userInfoKeyTags: tags]
     }
 }
 
@@ -60,7 +60,7 @@ public struct Dev: UserInfoTaggingProtocol {
 
     /// Dictionary representation compatible with the userInfo paramater of log messages
     public var dictionary: [String: String] {
-        return [JFXCGLogger.Constants.userInfoKeyDevs: name]
+        return [XCGLogger.Constants.userInfoKeyDevs: name]
     }
 
     /// Initialize a Dev object with a name
@@ -81,7 +81,7 @@ public struct Dev: UserInfoTaggingProtocol {
             tags.append(name)
         }
 
-        return [JFXCGLogger.Constants.userInfoKeyDevs: tags]
+        return [XCGLogger.Constants.userInfoKeyDevs: tags]
     }
 }
 
